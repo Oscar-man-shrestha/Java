@@ -55,7 +55,7 @@ public class Practise{
 
     String name;
 
-   public practisee (String name){
+   public Practise (String name){
        this.name=name;
    }
 
@@ -97,7 +97,7 @@ public class Practise{
        }
        public static void main(String args[]){
 
-           practisee obj=new practisee("Oscar Man Shrestha");
+           Practise obj=new Practise("Oscar Man Shrestha");
            obj.checkGrade(90);
            obj.checkGrade('A');
            obj.checkGrade(100.00);
