@@ -196,31 +196,158 @@
 
 //                                   Super
 
-class Rectangle {
-    int length;
-    int breadth;
-    int x = 10;  // Instance variable
+// class Rectangle {
+//     int length;
+//     int breadth;
+//     int x = 10;  // Instance variable
 
-    Rectangle(int length, int breadth) {
-        this.length = length;
-        this.breadth = breadth; // Constructor
-    }
-}
+//     Rectangle(int length, int breadth) {
+//         this.length = length;
+//         this.breadth = breadth; // Constructor
+//     }
+// }
 
-class Cuboid extends Rectangle {
-    int height;
-    int x = 20;  // Shadowing the 'x' variable from Rectangle
+// class Cuboid extends Rectangle {
+//     int height;
+//     int x = 20;  // Shadowing the 'x' variable from Rectangle
 
-    Cuboid(int l, int b, int h) {
-        super(l, b);  // Calls Rectangle's constructor
-        height = h;
-    }
+//     Cuboid(int l, int b, int h) {
+//         super(l, b);  // Calls Rectangle's constructor
+//         height = h;
+//     }
 
-    void display() {
-        System.out.println(super.x);  // Accesses 'x' from Rectangle (10)
-        System.out.println(x);         // Accesses 'x' from Cuboid (20)
-    }
-}
+//     void display() {
+//         System.out.println(super.x);  // Accesses 'x' from Rectangle (10)
+//         System.out.println(x);         // Accesses 'x' from Cuboid (20)
+//     }
+// }
+
+
+// class Super {
+//     public void display(){
+//         System.out.println("Super Class Display");
+//     }
+// }
+// class Sub extends Super {
+//     @Override
+//     public void display(){
+//         System.out.println("Sub Class Display");
+// }
+// }
+// public class Inheritance{
+//     public static void main(String [] args){
+//         Super sup=new Super();
+//         sup.display();
+
+//         Sub sub = new Sub();
+//         sub.display();
+
+//         Super sub1 =new Sub();  // refernce of super class and object of sub class
+//         sub1.display();  //Dynamic method dispatch
+//     }
+// }
 
 
 
+//==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+//Some examples of overriding
+
+
+// class TV{
+//     public void switchON(){
+//         System.out.println(" TV is switched ON ");
+//     }
+//     public void changeChanell(){
+//         System.out.println(" TV chanell is changed ");
+//     }
+// }
+
+// class SmartTV extends TV{
+//     @Override
+//     public void switchON(){
+//         System.out.println(" Smart TV is switched ON ");
+//     }
+//     @Override
+//     public void changeChanell(){
+//         System.out.println(" Smart TV chanell is changed ");
+//     }
+    
+//     public void browse(){
+//         System.out.println(" Smart TV is browsed  ");
+//     }
+    
+// }
+
+
+// public class Inheritance{
+// public static void main(String args[]){
+
+//     TV t = new SmartTV();  //valid -> but object is of smart tv but using refernce of tv (So can't use browse method).
+
+//     //You can't call tv as smart tv but smart tv can call tv so below code is invalid.
+//     // SmartTV t = new TV(); //invalid
+//     // t.changeChanell();
+//     // t.switchON();
+
+    
+//     // SmartTV t = new TV(); this means you are calling smart tv as tv.
+//     //If you are calling smart tv as tv then you can't browse
+//     // t.browse();  //error
+//     t.changeChanell();
+//     t.switchON();
+//     t.changeChanell();
+
+
+// }
+// }
+//==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+//Some More Examples
+
+
+// class Car {
+//     public void start(){System.out.println("Car Started");}
+//     public void accelerate(){System.out.println("Car is Accelerated");}
+//     public void changeGear(){System.out.println("Car Gear changed");}
+// }
+
+// class LuxaryCar extends Car{
+//     public void changeGear(){System.out.println("Automatic Gear");}
+//     public void openRoof(){System.out.println("Sun Roof is Opened");}
+// }
+
+// public class Inheritance{
+    // public static void main(String args []){
+        // Car c = new Car();
+        // c.accelerate();
+        // c.changeGear();
+        // c.start(); 
+        
+        //Output: Car is Accelerated
+        // Car Gear changed
+        // Car Started
+
+        // LuxaryCar lc = new LuxaryCar();
+        // lc.start();
+        // lc.openRoof();
+        // lc.accelerate();
+        // lc.changeGear();
+
+        //Output : Car Started
+        // Sun Roof is Opened
+        // Car is Accelerated
+        // Automatic Gear
+
+        // Car c = new LuxaryCar();
+        // c.start();
+        // c.accelerate();
+        // c.changeGear();
+
+        //Output : Car Started
+        // Car is Accelerated
+        // Automatic Gear  -> takes methods of child class as it is object
+                
+
+//     }
+// }
