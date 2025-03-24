@@ -351,3 +351,93 @@
 
 //     }
 // }
+
+//==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
+
+//  Protected keyword..
+
+// 1 ) top-level Class cannot be declared as protected 
+// only inner classes (non-static ones declared within a class) can be marked as protected.
+
+
+// Valid ✅
+
+// class outer {
+//     protected class Inner {
+//         void display(){
+//             System.out.println("Protected Inner Class ");
+//         }
+//     }
+// }
+
+// Invalid ❌
+// protected class Outer {  // Error! Can't make top-level class protected
+//     // Code...
+// }
+
+//2) Interfaces cannot be protected  
+
+// * interfaces must be public or package-private(default)
+// * protected Interface gives compilation error
+
+// Valid ✅
+// public interface Inheritance {
+
+//     void display();
+// }
+
+// Invalid ❌
+// protected interface InnerInheritance {
+// void display();
+    
+// }
+
+//3) Acess outside the package is only through inheritance
+//* if a class is in a different package ,the protected members are accessible only through a subclass -not by creating object.
+
+// Package 1
+// package package1;  // Defines that this class belongs to "package1"
+
+// public class Parent {  // A public class, accessible from other packages
+
+//     protected void greet() {  
+//         // A protected method - accessible:
+//         // 1️⃣ Within this class.
+//         // 2️⃣ By other classes in "package1".
+//         // 3️⃣ By subclasses (even if they’re in different packages).
+        
+//         System.out.println("Hello from Parent");  // Prints this message when called
+//     }
+// }
+
+// package package2;
+
+// import package1.Parent;  // Import Parent class from package1
+
+// public class Child extends Parent {  // Inherits from Parent
+//     public void callGreet() {
+//         greet();  // ✅ Allowed: Inherited from Parent
+//     }
+// }
+
+// public class Test {
+//     public static void main(String[] args) {
+//         Child child = new Child();
+//         child.callGreet();  // ✅ Works: Outputs "Hello from Parent"
+        
+//         Parent p = new Parent();
+//         p.greet();  // ❌ Error: Cannot access protected method without inheritance
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
